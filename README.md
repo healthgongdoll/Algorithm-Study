@@ -47,7 +47,45 @@ class Solution {
 }
 ```
 
+#### Q. Binary Search Recursion
 
+Binary Recursion basic logic is that </br>
+Binary Search only available on **Sorted Array** </br>
+There is three pointer Left, Right, Mid. Left is setted to be 0 and Right is setted to be Array.length-1. </br>
+If target is bigger than Mid set Left as Mid+1 , If target is smaller than Mid set Right as Mid-1. </br>
+Since it is recursive method, each condition must search recursively. </br>
+
+```
+class Solution {
+    public int search(int[] nums, int target) {
+        return bsearch(nums, 0, nums.length-1, target);
+    }
+    
+    public int bsearch(int[] nums, int l, int r, int target)
+    {
+       int mid = (l+r) /2;
+        if(l>r)
+        {
+            return -1;
+        }
+        if(target == nums[mid])
+        {
+            return mid;
+        }
+        if(target < nums[mid])
+        {
+            return bsearch(nums, l, mid - 1, target);
+        }
+        
+        if(target > nums[mid])
+        {
+            return bsearch(nums,mid+1, r, target);
+        }
+        
+        return 0;
+    }
+}
+```
 
 
 
