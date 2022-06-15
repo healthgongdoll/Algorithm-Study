@@ -153,3 +153,32 @@ def karatsuba(x,y):
 ### Time Complexity 
 ![image](https://user-images.githubusercontent.com/79100627/173431047-fd4a6240-b604-4ad9-88ff-0ab47a5ea160.png)
 ![image](https://user-images.githubusercontent.com/79100627/173431134-e921ea4c-1582-45e7-832b-e6d9eab5c640.png)
+
+## Linked List 
+
+### LinkedList Reverse 
+
+```
+NULL -> 1 -> 2 -> 3 -> NULL
+
+1. Step Set the Current Node as Head and Set the prev as NULL (First null )
+
+NULL (Prev, Next) -> 1 (Head, Curr) -> 2 -> 3 -> NULL
+
+2. Set Next pointer to the current's next 
+
+NULL(Prev) -> 1 (Head, Curr) -> 2 (Next) -> 3 -> NULL
+
+3. Set Current's Next as Prev 
+
+NULL (Prev) <- 1 (Head, Curr) -> 2(Next) -> 3 -> NULL
+
+4. Set prev as current 
+
+NULL <- 1 (Head,Curr, Prev) -> 2(Next) -> 3 -> NULL
+
+5. Set Current as next 
+
+Null <- 1(Head, Prev) -> 2(Curr,Next) -> 3 -> NULL
+
+Iterate 1 to 5 
