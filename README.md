@@ -185,7 +185,7 @@ Iterate 1 to 5
 ```
 ## Sorting
 
-### Counting Sort 
+### Counting Sort O(n+k (element in range 1...k))
 
 Couting sort is a sorting based on keys between specific range. It works by counting the number of objects having distinct key values (kind of hashing). Then do some arithmetic to calculate the position of each object in output sequence
 
@@ -273,4 +273,25 @@ i: 1 2 3 4 5 6 7
   [1,1,2,2,4,5,7]
  
 ```
-   
+
+### Radix Sort 
+
+The Lower bound for comparison based sorting algorithm. Couting sort is a linear time sorting algorithm that sort in O(n+k) time when elements are in the range from 1 to k.
+
+### What if the elements are in the range from 1 to n^2 
+
+we can't use counting sort because counting sort will take O(n^2)  which is worse than comparison-based sorting algorithms. Can we sort such an array in linear time?
+
+Radix sort is the answwer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit.. 
+
+### Radix Sort Timecomplexity 
+
+d digits in input integers. Radix Sort takes O(d*(n+b)) time where b is the base for representing numbers, for example, for the decimal b is 10. 
+
+d - If the k is the maximum possible value, then d would be O(logb(K)) 
+
+Overall O((n+b) * logb(k))
+
+###
+
+![image](https://user-images.githubusercontent.com/79100627/176779684-762e68f2-6b66-44a6-8f1a-b96a371d5db0.png)
