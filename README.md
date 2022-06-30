@@ -99,7 +99,7 @@ If we multiply two numbers
       1357800
  ---------------
       1570522
-````
+```
 
 This will take O(n^2) -> Where n is number of digits </br>
 To reduce more time complexity we use the Karatsuba Algorithm (Divide and Conquer) 
@@ -182,3 +182,95 @@ NULL <- 1 (Head,Curr, Prev) -> 2(Next) -> 3 -> NULL
 Null <- 1(Head, Prev) -> 2(Curr,Next) -> 3 -> NULL
 
 Iterate 1 to 5 
+```
+## Sorting
+
+### Counting Sort 
+
+Couting sort is a sorting based on keys between specific range. It works by counting the number of objects having distinct key values (kind of hashing). Then do some arithmetic to calculate the position of each object in output sequence
+
+- Counting sort makes assumption about the data, for example, it assumes that values are going to be in the range of 0 to 10 or 10 - 99 etc. Some other assumptions counting sort makes are input data will be all real numbers. 
+- Like other algorithms this sorting is **not a comparison based algorithm** it hashes the value in a temporary count array and uses them for sorting. 
+- It uses a temporary array making it a non In Place algorithm. 
+
+```
+[1,4,1,2,7,5,2]
+
+Count each element in the given array and place the count at the appropriate index
+
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,2,2,0,1,1,0,1,0,0]
+  
+ Modify the count array such that each element at each index stores the sum of previous counts 
+ 
+ 0, 0+2, 0+2+2, 0+2+2+0, 0+2+2+0+1,... 
+ 
+ [0,2,4,4,5,6,6,7,7,7]
+ 
+Rotate the array clockwise for one time 
+
+1.
+ [1,4,1,2,7,5,2]
+
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,2,4,4,5,6,6,7,7,7]
+  
+Sorted Array:
+We place the objects in their correct position and decrease the count by one 
+i: 1 2 3 4 5 6 7
+  [0,1,0,0,0,0,0]
+
+2.
+ [1,4,1,2,7,5,2]
+ 
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,1,4,4,4,6,6,7,7,7]
+
+Sorted Array:
+i: 1 2 3 4 5 6 7
+  [0,1,0,0,4,0,0]
+  
+3.
+  [1,4,1,2,7,5,2]
+  
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,0,4,4,4,6,6,7,7,7]
+ 
+Sorted Array:
+i: 1 2 3 4 5 6 7
+  [1,1,0,0,4,0,0]
+
+4.
+  [1,4,1,2,7,5,2]
+  
+ i: 0 1 2 3 4 5 6 7 8 9
+  [0,0,3,4,4,6,6,7,7,7]
+  
+  Sorted Array:
+i: 1 2 3 4 5 6 7
+  [1,1,0,2,4,0,0]
+  
+  5.
+   [1,4,1,2,7,5,2]
+   
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,0,3,4,4,6,6,6,7,7]
+  
+  Sorted Array:
+i: 1 2 3 4 5 6 7
+  [1,1,0,2,4,0,7]
+  
+  ...
+  
+  Final 
+   [1,4,1,2,7,5,2]
+   
+i: 0 1 2 3 4 5 6 7 8 9
+  [0,0,2,4,4,5,6,6,7,7]
+  
+  Sorted Array:
+i: 1 2 3 4 5 6 7
+  [1,1,2,2,4,5,7]
+ 
+```
+   
